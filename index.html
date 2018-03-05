@@ -6,6 +6,8 @@
 	<script type="text/javascript" src="assets/js/libs/paper-full.js"></script>
 	<script type="text/javascript" src="assets/js/libs/jQuery.js"></script>
 	<script type="text/paperscript" canvas="myCanvas">
+		var circles = [];
+
 		function onKeyDown(event)
 		{
 			//creates a point at max height and width
@@ -15,8 +17,25 @@
 			//generates a random point between the max and minimum screen dimensions
 			var point = maxPoint * ranPoint;
 			//when a key is pressed
-			//create a new circle at the random point 
-			new Path.Circle(point, 10).fillColor = "orange";
+			//create a new circle at the random point with 250 px radius 
+			var newCircle = new Path.Circle(point, 250);
+			//set circle color to orange
+			newCircle.fillColor = "orange";
+			//add circle to circles array
+			circles.push(newCircle);
+		}
+		
+		//on every frame
+		function onFrame(event)
+		{
+			//loop through each circle in array
+			for(var i = 0; i < circles.length; i++)
+			{
+				//change the color
+				circles[i].fillColor.hue +=1;
+				//multiply scale by 90%
+				circles[i].scale(.9);
+			}
 		}
 	</script>
 </head>
