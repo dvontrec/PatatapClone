@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/papatap.css">
+	<script type="text/javascript" src="assets/js/libs/paper-full.js"></script>
+	<script type="text/paperscript" canvas="myCanvas">
+		var x = 0;
+		var y = 0;
+		for(x = 0; x<1000; x+=100)
+		{
+			for(y=0; y<1000; y+=100)
+			{
+				var myCircle = new Path.Circle(new Point(x, y), 10);
+				myCircle.fillColor = 'yellow';
+			}
+		}
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas"></canvas>
+
+</body>
+</html>

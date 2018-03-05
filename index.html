@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patatap Clone</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/papatap.css">
+	<script type="text/javascript" src="assets/js/libs/paper-full.js"></script>
+	<script type="text/javascript" src="assets/js/libs/jQuery.js"></script>
+	<script type="text/paperscript" canvas="myCanvas">
+		function onKeyDown(event)
+		{
+			//creates a point at max height and width
+			var maxPoint = new Point(view.size.width, view.size.height);
+			//creates a random point
+			var ranPoint = Point.random();
+			//generates a random point between the max and minimum screen dimensions
+			var point = maxPoint * ranPoint;
+			//when a key is pressed
+			//create a new circle at the random point 
+			new Path.Circle(point, 10).fillColor = "orange";
+		}
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas"></canvas>
+	<script type="text/javascript" src="assets/js/patatap.js"></script>
+</body>
+</html>
